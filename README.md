@@ -96,14 +96,16 @@ interface ProductRequest extends PartialReadonly<Request, 'isAvailable' | 'produ
 
 const request = defineModel<ProductRequest>({ required: true })
 
-// Изменение свойств без ошибок от компилятора TypeScript
+/** Изменение свойств без ошибок от компилятора TypeScript */
 request.value.isAvailable = true
 request.value.productType = 'electronics'
 request.value.name = 'headphones'
 
-// Компилятор TypeScript обозначит ошибку: Cannot assign to 'group' because it is a read-only property.
+/**
+ * Компилятор TypeScript обозначит ошибку:
+ * Cannot assign to 'group' because it is a read-only property.
+ */
 request.value.group = 'regional'
-
 
 ```
 
